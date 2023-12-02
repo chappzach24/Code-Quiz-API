@@ -1,0 +1,25 @@
+body{
+  background: white;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+}
+nav{
+  
+}
+
+/* Quiz button */
+.start_btn{
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  right: 50%;
+}
+.start_btn button{
+  font-size: 30px;
+  
+}
