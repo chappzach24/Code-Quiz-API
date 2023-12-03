@@ -11,15 +11,19 @@ nav{
   
 }
 
-/* Quiz button */
-.start_btn{
-  position: absolute;
+#quesPanel{
+  /* position: absolute; */
   justify-content: center;
   align-items: center;
-  top: 50%;
-  right: 50%;
+  top: 10%;
+  right: 1vh;
+}
+
+/* Quiz button */
+/* .start_btn{
+  
 }
 .start_btn button{
   font-size: 30px;
   
-}
+} */

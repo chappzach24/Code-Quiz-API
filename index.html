@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./Assets/style.css" />
-    
+
     <title>Coding Quiz Challenge</title>
   </head>
   <body>
@@ -14,12 +14,18 @@
       </nav>
       <h1>Coding Quiz Challenge</h1>
       <nav>
-        <h1 class="time" style="text-align: center"></h1>
+        <h1 class="time"></h1>
       </nav>
     </header>
-
-    <div class="start_btn" id="start_time"><button>Start Quiz</button></div>
-
-    <script src="./Assets/script.js"></script>
+    <main>
+      <div class="panel" id="quesPanel">
+        <h1>Quiz Application Using JavaScript</h1>
+        <div class="question" id="ques"></div>
+        <div class="options" id="opt"></div>
+        <button id="#start" onclick="timeStart(); loadQues();hideStartButton()">Start quiz</button>  
+        <button onclick="checkAns()" id="btn">SUBMIT</button>
+        <div id="score"></div>
+        <script src="./Assets/script.js"></script>
+    </div>
   </body>
 </html>
