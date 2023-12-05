@@ -1,29 +1,61 @@
-body{
-  background: white;
-}
 header{
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background: white;
-}
-nav{
-  
+  justify-content: space-between;
+  background-color: aqua;
+  font-size: 25px;
 }
 
 #quesPanel{
-  /* position: absolute; */
-  justify-content: center;
-  align-items: center;
-  top: 10%;
-  right: 1vh;
+  text-align: center;
+  margin: auto;
+  padding: 3px;
+  background: blueviolet;
+  font-size: 25px;
 }
 
-/* Quiz button */
-/* .start_btn{
-  
+main{
+ text-align: center;
 }
-.start_btn button{
-  font-size: 30px;
-  
-} */
+#btn{
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+#srt{
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.options{
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.hidden {
+  display: none;
+}
+
+

@@ -18,14 +18,30 @@
       </nav>
     </header>
     <main>
-      <div class="panel" id="quesPanel">
-        <h1>Quiz Application Using JavaScript</h1>
-        <div class="question" id="ques"></div>
+
+      <div id="introPanel">
+        <h2>Quiz Application Using JavaScript</h2>
+        <button id="start" class="str">Start quiz</button>  
+
+      </div>
+
+      <div class="panel hidden" id="quesPanel" >
+        <h2 class="question" id="ques"></h2>
         <div class="options" id="opt"></div>
-        <button id="#start" onclick="timeStart(); loadQues();hideStartButton()">Start quiz</button>  
-        <button onclick="checkAns()" id="btn">SUBMIT</button>
-        <div id="score"></div>
-        <script src="./Assets/script.js"></script>
-    </div>
+        <!-- <button id="btn">SUBMIT</button> -->
+      </div>
+
+      <div id="gameOverPanel" class="hidden">
+        <h2 id="score"></h2>
+        <div>
+          <label for="user">Enter Initials: </label>
+          <input type="text" id="user">
+          <button id="submit">Submit</button>
+        </div>
+      </div>
+
+      
+
+      <script src="./Assets/script.js"></script>
   </body>
 </html>
