@@ -45,10 +45,12 @@ const questions = [
   },
 ];
 
-let secondsLeft = 50;
+let secondsLeft = 5;
 const timeEl = document.querySelector(".time");
 const questPanel = document.getElementById("quesPanel")
 let timerInterval;
+let userNameInput = document.getElementById("userName");
+let userName = "";
 
 var submit = document.querySelector("submit");
 
@@ -131,25 +133,38 @@ function nextQuestion() {
     loadQues()
   }
 }
-//checks score to see if its right
-//shows the score you get at the end
-function loadScore() {
+// checks score to see if its right
+// shows the score you get at the end
+// function loadScore() {
 
-  clearInterval(timerInterval);
-  questPanel.classList.add('hidden')
-  document.getElementById("gameOverPanel").classList.remove('hidden');
-  const totalScore = document.getElementById("score");
-  totalScore.textContent = `You scored ${score} out of ${questions.length} questions`;
-}
+//   clearInterval(timerInterval);
+//   questPanel.classList.add('hidden')
+//   document.getElementById("gameOverPanel").classList.remove('hidden');
+//   const totalScore = document.getElementById("score");
+//   totalScore.textContent = `You scored ${score} out of ${questions.length} questions`;
+// }
 
 //TODO: Add score, hide everything beside score, add button to refresh page for new game
 
+function loadScore() {
+  clearInterval(timerInterval);
+  questPanel.classList.add('hidden')
+  document.getElementById("gameOverPanel").classList.remove('hidden');
+  document.getElementById("refresh").classList.remove('hidden');
+  document.getElementById("submitBtn").addEventListener("click", saveUserName);
+  
+  // Get the user name from the input field
+  userName = userNameInput.value;
+  
+  const totalScore = document.getElementById("score");
+  totalScore.textContent = ` You scored ${score} out of ${questions.length} questions`;
+  
+  // Save user name and score to localStorage
+  localStorage.setItem("userName", userName);
+  localStorage.setItem("score", score);
+}
 
-var count = localStorage.getItem(user);
-var count = localStorage.getItem(score);
 
-console.log(user);
-console.log(score);
 
 
 

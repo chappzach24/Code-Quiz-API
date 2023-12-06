@@ -34,13 +34,15 @@
       <div id="gameOverPanel" class="hidden">
         <h2 id="score"></h2>
         <div>
-          <label for="user">Enter Initials: </label>
-          <input type="text" id="user">
-          <button id="submit">Submit</button>
+          <input type="text" id="userName" placeholder="Enter Initials: ">
+          <!-- <label for="user">Enter Initials: </label> -->
+          <!-- <input type="text" id="user"> -->
+          <button id="submitBtn" onclick="saveUserName()">Submit</button>
         </div>
       </div>
 
       <div id="highScore">
+      
         <button id="refresh" class="hidden ">New game</button>
       </div>
 
