@@ -49,8 +49,7 @@ let secondsLeft = 50;
 const timeEl = document.querySelector(".time");
 const questPanel = document.getElementById("quesPanel")
 let timerInterval;
-var count = localStorage.getItem("user");
-var count = localStorage.getItem("score");
+
 var submit = document.querySelector("submit");
 
 let currQuestion = 0;
@@ -143,10 +142,14 @@ function loadScore() {
   totalScore.textContent = `You scored ${score} out of ${questions.length} questions`;
 }
 
-// submit.addEventListener("click", function(){
-  
-// })
+//TODO: Add score, hide everything beside score, add button to refresh page for new game
 
+
+var count = localStorage.getItem(user);
+var count = localStorage.getItem(score);
+
+console.log(user);
+console.log(score);
 
 
 
