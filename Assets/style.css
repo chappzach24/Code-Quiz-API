@@ -41,7 +41,7 @@ main{
   margin-bottom: 5px;
 }
 .options{
-  display: block;
+  /* display: block;
   width: 100%;
   border: none;
   background-color: #04AA6D;
@@ -51,7 +51,7 @@ main{
   cursor: pointer;
   text-align: center;
   margin-bottom: 5px;
-  font-size: 18px;
+  font-size: 18px; */
 }
 
 .hidden {
