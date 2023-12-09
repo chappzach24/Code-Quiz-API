@@ -37,16 +37,16 @@
           <input type="text" id="userName" placeholder="Enter Initials: ">
           <!-- <label for="user">Enter Initials: </label> -->
           <!-- <input type="text" id="user"> -->
-          <button id="submitBtn" onclick="saveUserName()">Submit</button>
+          <button id="submitBtn" onclick="loadScore()">Submit</button>
         </div>
       </div>
-
-      <div id="highScore">
-      
-        <button id="refresh" class="hidden ">New game</button>
+      <div id="scoreboardPanel" class="hidden">
+        <h2>High Scores</h2>
+        <ul id="scoreboardList"></ul>
       </div>
-
-
+     
+        <button id="refresh" class="hidden" onClick="window.location.reload()">New game</button>
+        
       <script src="./Assets/script.js"></script>
   </body>
 </html>

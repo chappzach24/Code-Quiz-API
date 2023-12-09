@@ -45,14 +45,14 @@ const questions = [
   },
 ];
 
-let secondsLeft = 5;
+let secondsLeft = 50;
 const timeEl = document.querySelector(".time");
 const questPanel = document.getElementById("quesPanel")
 let timerInterval;
 let userNameInput = document.getElementById("userName");
 let userName = "";
 
-var submit = document.querySelector("submit");
+var submit = document.querySelector("#submit");
 
 let currQuestion = 0;
 let score = 0;
@@ -65,12 +65,10 @@ function hideStartButton() {
 }
 
 
-// function timePenalty(secondsLeft){
-//   return secondsLeft - 10;
-// }
+
 
 function timeStart() {
-  // document.getElementById("#start").hide()
+
   // Sets interval in variable
   timeEl.textContent = secondsLeft + " Seconds left";
    timerInterval = setInterval(function () {
@@ -96,18 +94,10 @@ function loadQues() {
   //will pick question that will be showed
   for (let i = 0; i < questions[currQuestion].a.length; i++) {
     const choicesBtn = document.createElement("button");
-    // const choice = document.createElement("input");
-    // const choiceLabel = document.createElement("label");
-
-    // choice.type = "radio";
-    // choice.name = "answer";
-    // choice.value = i;
-
+  
     choicesBtn.textContent = questions[currQuestion].a[i].text;
     choicesBtn.setAttribute('value', questions[currQuestion].a[i].isCorrect)
     choicesBtn.addEventListener('click', nextQuestion)
-    // choicesdiv.appendChild(choice);
-    // choicesdiv.appendChild(choiceLabel);
     opt.appendChild(choicesBtn);
   }
 }
@@ -127,42 +117,104 @@ function nextQuestion() {
   currQuestion++;
   
   if (currQuestion === questions.length) {
-    loadScore()
+    const totalScore = document.getElementById("score");
+    totalScore.textContent = ` You scored ${score} out of ${questions.length} questions`;
+    showScoreboard()
   } else {
     
     loadQues()
   }
 }
-// checks score to see if its right
-// shows the score you get at the end
-// function loadScore() {
 
-//   clearInterval(timerInterval);
-//   questPanel.classList.add('hidden')
-//   document.getElementById("gameOverPanel").classList.remove('hidden');
-//   const totalScore = document.getElementById("score");
-//   totalScore.textContent = `You scored ${score} out of ${questions.length} questions`;
-// }
 
-//TODO: Add score, hide everything beside score, add button to refresh page for new game
+
+function saveUserName() {
+  // Get the user name from the input field
+
+  userName = document.getElementById("userName").value;
+
+  // Ensure the user entered a name
+  if (userName.trim() === "") {
+    alert("Please enter your initials.");
+    return;
+  }
+
+  // Save the user name to local storage
+  localStorage.setItem("userName", userName);
+
+  console.log("User name saved:", userName);
+
+  return userName
+}
 
 function loadScore() {
-  clearInterval(timerInterval);
-  questPanel.classList.add('hidden')
-  document.getElementById("gameOverPanel").classList.remove('hidden');
-  document.getElementById("refresh").classList.remove('hidden');
+  let userName = saveUserName()
   document.getElementById("submitBtn").addEventListener("click", saveUserName);
+  // document.getElementById("submitBtn").addEventListener("click", showScoreboard);
+  saveHighScore(userName, score);
+
   
   // Get the user name from the input field
   userName = userNameInput.value;
+  localStorage.setItem("userName", userName)
   
   const totalScore = document.getElementById("score");
   totalScore.textContent = ` You scored ${score} out of ${questions.length} questions`;
   
   // Save user name and score to localStorage
-  localStorage.setItem("userName", userName);
+  
   localStorage.setItem("score", score);
+  
+  showScoreboard();
 }
+
+
+function getHighScores() {
+  // Retrieve high scores from localStorage
+  const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  return highScores;
+}
+
+function showScoreboard() {
+  // stop time and clear page before the scoreboard shows up
+  clearInterval(timerInterval);
+  questPanel.classList.add('hidden')
+  user = localStorage.getItem("userName")
+  document.getElementById("gameOverPanel").classList.remove('hidden');
+  document.getElementById("refresh").classList.remove('hidden');
+
+
+  const scoreboardPanel = document.getElementById("scoreboardPanel");
+  scoreboardPanel.classList.remove("hidden");
+  // Get high scores from localStorage
+  const highScores = getHighScores();
+
+  // Display high scores in the scoreboardList
+  const scoreboardList = document.getElementById("scoreboardList");
+  scoreboardList.innerHTML = "";
+
+  console.log(score)
+
+  highScores.forEach((score, index) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = `${index+ 1}. ${score.userName} - ${score.score}`;
+    scoreboardList.appendChild(listItem);
+  });
+} 
+
+function saveHighScore(userName, score) {
+  // Retrieve existing high scores
+  const highScores = getHighScores();
+  // Add the current user's score to the array
+  highScores.push({ userName, score });
+
+  // Sort high scores in descending order
+  highScores.sort((a, b) => b.score - a.score);
+
+  // Save the updated high scores to localStorage
+  localStorage.setItem("highScores", JSON.stringify(highScores));
+}
+
 
 
 
