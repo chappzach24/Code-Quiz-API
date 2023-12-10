@@ -120,7 +120,7 @@ function nextQuestion() {
     const totalScore = document.getElementById("score");
     totalScore.textContent = ` You scored ${score} out of ${questions.length} questions`;
     showScoreboard()
-  } else {
+  } else { 
     
     loadQues()
   }

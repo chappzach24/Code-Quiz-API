@@ -1,9 +1,51 @@
+body{
+  background-color: pink;
+}
 header{
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: aqua;
   font-size: 25px;
+}
+h1{
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+
+ul{
+  list-style-type: none;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+ text-align: center;
+ justify-content: center;
+}
+
+button{
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background-color: #4299e1;
+  border-radius: 50px;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  line-height: 26px;
+
+}
+
+.time{
+  padding-left: 90px;
+}
+
+.hidden {
+  display: none;
 }
 
 #quesPanel{
@@ -14,9 +56,6 @@ header{
   font-size: 25px;
 }
 
-main{
- text-align: center;
-}
 #btn{
   display: block;
   width: 100%;
@@ -28,21 +67,8 @@ main{
   cursor: pointer;
   text-align: center;
 }
-#srt{
-  display: block;
-  width: 100%;
-  border: none;
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 28px;
-  font-size: 16px;
-  cursor: pointer;
+.gameOverPanel, #scoreboardPanel{
   text-align: center;
-  margin-bottom: 5px;
-}
-
-.hidden {
-  display: none;
 }
 
 
